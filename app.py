@@ -276,20 +276,42 @@ st.markdown("""
         margin-bottom: 4px !important;
     }
 
-    /* Inputs & Dropdowns */
+    /* Inputs, Dropdowns & Date Pickers (Forces Deep Slate Navy across both Localhost & Cloud) */
     [data-testid="stSidebar"] div[data-baseweb="select"] > div,
-    [data-testid="stSidebar"] div[data-baseweb="input"] > div {
-        background-color: #162032 !important;
-        border: 1px solid rgba(56, 189, 248, 0.25) !important;
+    [data-testid="stSidebar"] div[data-baseweb="select"] div,
+    [data-testid="stSidebar"] div[data-baseweb="input"],
+    [data-testid="stSidebar"] div[data-baseweb="input"] > div,
+    [data-testid="stSidebar"] div[data-baseweb="input"] input,
+    [data-testid="stSidebar"] div[data-testid="stDateInput"] input,
+    [data-testid="stSidebar"] div[data-testid="stDateInput"] div[data-baseweb="input"],
+    [data-testid="stSidebar"] div[data-testid="stSelectbox"] div[data-baseweb="select"] > div {
+        background-color: #131c2e !important;
+        background: #131c2e !important;
+        border: 1px solid rgba(56, 189, 248, 0.3) !important;
         border-radius: 10px !important;
-        color: #ffffff !important;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
+        color: #f8fafc !important;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4) !important;
         transition: all 0.2s ease !important;
     }
     [data-testid="stSidebar"] div[data-baseweb="select"] > div:hover,
-    [data-testid="stSidebar"] div[data-baseweb="input"] > div:hover {
+    [data-testid="stSidebar"] div[data-baseweb="input"]:hover,
+    [data-testid="stSidebar"] div[data-testid="stDateInput"] div[data-baseweb="input"]:hover {
         border-color: #38bdf8 !important;
-        box-shadow: 0 0 12px rgba(56, 189, 248, 0.35) !important;
+        box-shadow: 0 0 14px rgba(56, 189, 248, 0.4) !important;
+    }
+    /* Dropdown Menus & Popover Options */
+    ul[data-baseweb="menu"],
+    div[data-baseweb="popover"],
+    div[data-baseweb="calendar"] {
+        background-color: #0f172a !important;
+        background: #0f172a !important;
+        border: 1px solid rgba(56, 189, 248, 0.35) !important;
+        border-radius: 12px !important;
+        color: #f8fafc !important;
+    }
+    li[data-baseweb="menu-item"]:hover {
+        background: rgba(56, 189, 248, 0.18) !important;
+        color: #38bdf8 !important;
     }
 
     /* Fix Slider Aesthetics: Cyan/Indigo Gradient Track & Cyan Glowing Thumb */
@@ -901,10 +923,10 @@ def main():
         destination_city = st.selectbox("To (Destination)", dest_candidates, index=dest_idx)
 
     transit_mode_labels = [
-        "🤖 Smart Recommendation (Budget-Optimized)",
+        "🤖 Smart Mode (Budget-Optimized)",
         "🚌 AC Sleeper Bus (Budget Friendly)",
         "✈️ Flight (Fastest)",
-        "🚗 Private Cab / Car Rental (Road Trip)"
+        "🚗 Private Cab (Road Trip)"
     ]
     transit_mode_map = {
         transit_mode_labels[0]: "any",
