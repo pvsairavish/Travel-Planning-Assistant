@@ -3,11 +3,11 @@
 
 <div align="center">
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](http://localhost:8501)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://travel-planning-assistant-jnzdzewehguhjetzbxjrqp.streamlit.app/)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB.svg?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
 [![LangChain](https://img.shields.io/badge/Orchestration-LangChain%20%2F%20LangGraph-1C3C3C.svg?style=flat-square&logo=chainlink&logoColor=white)](https://www.langchain.com/)
 [![Open-Meteo](https://img.shields.io/badge/Weather%20Radar-Open--Meteo%20Live%20API-FF8C00.svg?style=flat-square&logo=curseforge&logoColor=white)](https://open-meteo.com/)
-[![Transit Modes](https://img.shields.io/badge/Multi--Modal-Flight%20%7C%20Bus%20%7C%20Cab-10B981.svg?style=flat-square)](https://github.com/)
+[![Transit Modes](https://img.shields.io/badge/Multi--Modal-Flight%20%7C%20Bus%20%7C%20Cab-10B981.svg?style=flat-square)](https://github.com/pvsairavish/Travel-Planning-Assistant)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blueviolet.svg?style=flat-square)](LICENSE)
 
 </div>
@@ -18,7 +18,8 @@
 
 > [!TIP]
 > ### 🚀 Live Interactive Web Portal
-> - 🖥️ **Live Web Dashboard:** [http://localhost:8501](http://localhost:8501)
+> - 🌍 **Streamlit Cloud Deployment:** **[https://travel-planning-assistant-jnzdzewehguhjetzbxjrqp.streamlit.app/](https://travel-planning-assistant-jnzdzewehguhjetzbxjrqp.streamlit.app/)**
+> - 🖥️ **Local Dashboard URL:** [http://localhost:8501](http://localhost:8501)
 > - ⚡ **Local Terminal Start:** `streamlit run app.py`
 > - 🔌 **Instant Headless CLI:** `python cli.py --from Delhi --to Jaipur --days 2 --style budget --transit bus`
 
