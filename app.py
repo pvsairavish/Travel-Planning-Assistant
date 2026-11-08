@@ -268,7 +268,7 @@ st.markdown("""
         margin: 0;
     }
 
-    /* Sidebar Form Controls Customization */
+    /* Sidebar Form Controls Customization (Matching Localhost Clean Design) */
     [data-testid="stSidebar"] label {
         font-size: 0.82rem !important;
         font-weight: 700 !important;
@@ -276,29 +276,70 @@ st.markdown("""
         margin-bottom: 4px !important;
     }
 
-    /* Inputs, Dropdowns & Date Pickers (Forces Deep Slate Navy across both Localhost & Cloud) */
-    [data-testid="stSidebar"] div[data-baseweb="select"] > div,
-    [data-testid="stSidebar"] div[data-baseweb="select"] div,
-    [data-testid="stSidebar"] div[data-baseweb="input"],
-    [data-testid="stSidebar"] div[data-baseweb="input"] > div,
-    [data-testid="stSidebar"] div[data-baseweb="input"] input,
-    [data-testid="stSidebar"] div[data-testid="stDateInput"] input,
-    [data-testid="stSidebar"] div[data-testid="stDateInput"] div[data-baseweb="input"],
-    [data-testid="stSidebar"] div[data-testid="stSelectbox"] div[data-baseweb="select"] > div {
-        background-color: #131c2e !important;
-        background: #131c2e !important;
-        border: 1px solid rgba(56, 189, 248, 0.3) !important;
-        border-radius: 10px !important;
+    /* Single Outermost Container for Selectboxes */
+    [data-testid="stSidebar"] div[data-baseweb="select"] {
+        border: none !important;
+        background: transparent !important;
+    }
+    [data-testid="stSidebar"] div[data-baseweb="select"] > div {
+        background-color: #262730 !important;
+        background: #262730 !important;
+        border: 1px solid rgba(255, 255, 255, 0.14) !important;
+        border-radius: 8px !important;
         color: #f8fafc !important;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4) !important;
+        box-shadow: none !important;
         transition: all 0.2s ease !important;
     }
+    /* Strictly remove borders, backgrounds & outlines from ALL nested selectbox children */
+    [data-testid="stSidebar"] div[data-baseweb="select"] > div * {
+        border: none !important;
+        border-color: transparent !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        outline: none !important;
+    }
+
+    /* Single Outermost Container for Inputs & DatePickers */
+    [data-testid="stSidebar"] div[data-baseweb="input"] {
+        background-color: #262730 !important;
+        background: #262730 !important;
+        border: 1px solid rgba(255, 255, 255, 0.14) !important;
+        border-radius: 8px !important;
+        color: #f8fafc !important;
+        box-shadow: none !important;
+        transition: all 0.2s ease !important;
+    }
+    /* Strictly remove borders & backgrounds from ALL nested input children */
+    [data-testid="stSidebar"] div[data-baseweb="input"] * {
+        border: none !important;
+        border-color: transparent !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        outline: none !important;
+        color: #f8fafc !important;
+    }
+
+    /* Clean Subtle Focus & Hover Highlight on Outer Controls */
     [data-testid="stSidebar"] div[data-baseweb="select"] > div:hover,
     [data-testid="stSidebar"] div[data-baseweb="input"]:hover,
-    [data-testid="stSidebar"] div[data-testid="stDateInput"] div[data-baseweb="input"]:hover {
+    [data-testid="stSidebar"] div[data-baseweb="select"] > div:focus-within,
+    [data-testid="stSidebar"] div[data-baseweb="input"]:focus-within {
         border-color: #38bdf8 !important;
-        box-shadow: 0 0 14px rgba(56, 189, 248, 0.4) !important;
+        box-shadow: 0 0 8px rgba(56, 189, 248, 0.3) !important;
     }
+
+    /* Dropdown Icons (Arrow & Calendar) */
+    [data-testid="stSidebar"] div[data-baseweb="select"] svg,
+    [data-testid="stSidebar"] div[data-baseweb="input"] svg {
+        fill: #94a3b8 !important;
+        color: #94a3b8 !important;
+    }
+    [data-testid="stSidebar"] div[data-baseweb="select"] > div:hover svg,
+    [data-testid="stSidebar"] div[data-baseweb="input"]:hover svg {
+        fill: #38bdf8 !important;
+        color: #38bdf8 !important;
+    }
+
     /* Dropdown Menus & Popover Options */
     ul[data-baseweb="menu"],
     div[data-baseweb="popover"],
@@ -923,10 +964,10 @@ def main():
         destination_city = st.selectbox("To (Destination)", dest_candidates, index=dest_idx)
 
     transit_mode_labels = [
-        "🤖 Smart Mode (Budget-Optimized)",
-        "🚌 AC Sleeper Bus (Budget Friendly)",
-        "✈️ Flight (Fastest)",
-        "🚗 Private Cab (Road Trip)"
+        "🤖 Smart Recommendation",
+        "🚌 AC Sleeper Bus",
+        "✈️ Flight",
+        "🚗 Private Cab"
     ]
     transit_mode_map = {
         transit_mode_labels[0]: "any",
@@ -934,7 +975,12 @@ def main():
         transit_mode_labels[2]: "flight",
         transit_mode_labels[3]: "cab"
     }
-    selected_transit_label = st.sidebar.selectbox("Transit Mode Preference", transit_mode_labels, index=0)
+    selected_transit_label = st.sidebar.selectbox(
+        "Transit Mode Preference",
+        transit_mode_labels,
+        index=0,
+        help="AI autonomously selects the most cost-effective transit mode based on your budget tier."
+    )
     preferred_transit_mode = transit_mode_map[selected_transit_label]
 
     # Section 2: Timeline & Duration
