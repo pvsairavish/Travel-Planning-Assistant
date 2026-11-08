@@ -14,8 +14,8 @@ import config
 FLIGHTS_FILE = config.FLIGHTS_FILE
 HOTELS_FILE = config.HOTELS_FILE
 PLACES_FILE = config.PLACES_FILE
-BUSES_FILE = getattr(config, "BUSES_FILE", config.BASE_DIR / "buses.json")
-CABS_FILE = getattr(config, "CABS_FILE", config.BASE_DIR / "cabs.json")
+BUSES_FILE = getattr(config, "BUSES_FILE", getattr(config, "DATA_DIR", config.BASE_DIR) / "buses.json")
+CABS_FILE = getattr(config, "CABS_FILE", getattr(config, "DATA_DIR", config.BASE_DIR) / "cabs.json")
 
 
 def _load_json(file_path: Path) -> List[Dict[str, Any]]:

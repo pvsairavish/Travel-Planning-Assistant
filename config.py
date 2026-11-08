@@ -7,11 +7,22 @@ from pathlib import Path
 
 # Base Paths
 BASE_DIR = Path(__file__).resolve().parent
-FLIGHTS_FILE = BASE_DIR / "flights.json"
-HOTELS_FILE = BASE_DIR / "hotels.json"
-PLACES_FILE = BASE_DIR / "places.json"
-BUSES_FILE = BASE_DIR / "buses.json"
-CABS_FILE = BASE_DIR / "cabs.json"
+DATA_DIR = BASE_DIR / "data"
+
+
+def _resolve_data_path(filename: str) -> Path:
+    """Resolves data file path from data/ directory, falling back to root BASE_DIR."""
+    data_path = DATA_DIR / filename
+    if data_path.exists():
+        return data_path
+    return BASE_DIR / filename
+
+
+FLIGHTS_FILE = _resolve_data_path("flights.json")
+HOTELS_FILE = _resolve_data_path("hotels.json")
+PLACES_FILE = _resolve_data_path("places.json")
+BUSES_FILE = _resolve_data_path("buses.json")
+CABS_FILE = _resolve_data_path("cabs.json")
 
 # Open-Meteo REST API Endpoint (Free, no API key required)
 OPEN_METEO_FORECAST_URL = "https://api.open-meteo.com/v1/forecast"

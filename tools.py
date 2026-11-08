@@ -1,9 +1,9 @@
 """
 LangChain tool definitions for the Travel Planning Assistant.
 Provides tools for:
-- Flight search (flights.json)
-- Hotel recommendations (hotels.json)
-- Attractions discovery (places.json)
+- Multi-modal transit search (data/flights.json, data/buses.json, data/cabs.json)
+- Hotel recommendations (data/hotels.json)
+- Attractions discovery (data/places.json)
 - Real-time weather lookup (Open-Meteo REST API)
 - Budget calculation (itemized travel expenses)
 """

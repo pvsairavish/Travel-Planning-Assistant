@@ -268,7 +268,7 @@ st.markdown("""
         margin: 0;
     }
 
-    /* Sidebar Form Controls Customization (Matching Localhost Clean Design) */
+    /* Sidebar Form Controls Customization */
     [data-testid="stSidebar"] label {
         font-size: 0.82rem !important;
         font-weight: 700 !important;
@@ -290,7 +290,7 @@ st.markdown("""
         box-shadow: none !important;
         transition: all 0.2s ease !important;
     }
-    /* Strictly remove borders, backgrounds & outlines from ALL nested selectbox children */
+    /* Strictly strip borders, backgrounds & shadows from all inner selectbox child divs/spans */
     [data-testid="stSidebar"] div[data-baseweb="select"] > div * {
         border: none !important;
         border-color: transparent !important;
@@ -309,7 +309,7 @@ st.markdown("""
         box-shadow: none !important;
         transition: all 0.2s ease !important;
     }
-    /* Strictly remove borders & backgrounds from ALL nested input children */
+    /* Strictly strip borders, backgrounds & shadows from all inner input children */
     [data-testid="stSidebar"] div[data-baseweb="input"] * {
         border: none !important;
         border-color: transparent !important;
@@ -319,7 +319,7 @@ st.markdown("""
         color: #f8fafc !important;
     }
 
-    /* Clean Subtle Focus & Hover Highlight on Outer Controls */
+    /* Hover & Focus state on the single outer container */
     [data-testid="stSidebar"] div[data-baseweb="select"] > div:hover,
     [data-testid="stSidebar"] div[data-baseweb="input"]:hover,
     [data-testid="stSidebar"] div[data-baseweb="select"] > div:focus-within,

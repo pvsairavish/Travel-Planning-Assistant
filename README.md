@@ -126,19 +126,20 @@ flowchart TD
 
 ```text
 Travel Planning Assistant/
-├── flights.json          # 30 commercial flight schedules across 8 major Indian hub cities
-├── buses.json            # 18 intercity AC sleeper & semi-sleeper routes (IntrCity, Zingbus, VRL)
-├── cabs.json             # 15 outstation cab & self-drive car options (MakeMyTrip, Zoomcar, Ola)
-├── hotels.json           # 40 hotel properties with star ratings (2★–5★), tariffs & amenities
-├── places.json           # 40 top-rated attractions categorized by type (beach, fort, temple, museum)
-├── config.py             # City coordinates, WMO weather codes, and daily expense tiers
-├── data_loader.py        # Resilient JSON query engine with multi-modal routing & savings logic
-├── tools.py              # 6 LangChain @tool definitions with Pydantic validation
-├── agent.py              # Autonomous ReAct agent + deterministic heuristic execution engine
-├── app.py                # Luxury Streamlit web application with Plotly analytics & interactive tabs
-├── cli.py                # Command-Line Interface for automated headless runs
-├── requirements.txt      # Python dependencies
-└── README.md             # Project documentation & execution guide
+├── data/                    # Unified Travel Datasets Directory
+│   ├── flights.json         # 30 commercial flight schedules across 8 major Indian hub cities
+│   ├── buses.json           # 18 intercity AC sleeper & semi-sleeper routes (IntrCity, Zingbus, VRL)
+│   ├── cabs.json            # 15 outstation cab & self-drive car options (MakeMyTrip, Zoomcar, Ola)
+│   ├── hotels.json          # 40 hotel properties with star ratings (2★–5★), tariffs & amenities
+│   └── places.json          # 40 top-rated attractions categorized by type (beach, fort, temple, museum)
+├── config.py                # City coordinates, WMO weather codes, and daily expense tiers
+├── data_loader.py           # Resilient JSON query engine with multi-modal routing & savings logic
+├── tools.py                 # 6 LangChain @tool definitions with Pydantic validation
+├── agent.py                 # Autonomous ReAct agent + deterministic heuristic execution engine
+├── app.py                   # Luxury Streamlit web application with Plotly analytics & interactive tabs
+├── cli.py                   # Command-Line Interface for automated headless runs
+├── requirements.txt         # Python dependencies
+└── README.md                # Project documentation & execution guide
 ```
 
 ---
@@ -147,10 +148,10 @@ Travel Planning Assistant/
 
 | Tool Name | Scope & Functionality | Source / Protocol |
 | :--- | :--- | :--- |
-| **`search_transit`** | Evaluates Flights, Buses, and Cabs side-by-side; calculates instant budget savings. | `flights.json`, `buses.json`, `cabs.json` |
-| **`search_flights`** | Queries direct flights and synthesizes 1-stop connecting flights when direct routes are unavailable. | `flights.json` |
-| **`recommend_hotels`** | Filters accommodations by destination city, minimum stars (1–5★), and nightly budget caps. | `hotels.json` |
-| **`discover_places`** | Recommends top-rated sights filtered by category (beach, fort, museum, lake, park). | `places.json` |
+| **`search_transit`** | Evaluates Flights, Buses, and Cabs side-by-side; calculates instant budget savings. | `data/flights.json`, `data/buses.json`, `data/cabs.json` |
+| **`search_flights`** | Queries direct flights and synthesizes 1-stop connecting flights when direct routes are unavailable. | `data/flights.json` |
+| **`recommend_hotels`** | Filters accommodations by destination city, minimum stars (1–5★), and nightly budget caps. | `data/hotels.json` |
+| **`discover_places`** | Recommends top-rated sights filtered by category (beach, fort, museum, lake, park). | `data/places.json` |
 | **`lookup_weather`** | Calls Open-Meteo REST API using city coordinates for real-time daily temperatures and condition codes. | Open-Meteo REST API (Live) |
 | **`calculate_budget`** | Computes itemized breakdown: `Transit Fare + (Hotel Rate × Nights) + (Daily Allowance × Days)`. | Deterministic Financial Math |
 
